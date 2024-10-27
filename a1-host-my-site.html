@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Host My Site - Airadise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2D2D2D;
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #4A4A4A;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #2D2D2D;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        article {
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 100px;
+        }
+
+        .full-width-image {
+            text-align: center;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        /* Lightbox styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            margin: auto;
+            display: block;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Airadise</h1>
+        <p>This site is created exclusively with the use of ChatGPT.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="a1-host-my-site.html">Blog</a>
+        <a href="deployment.html">Deployment Instructions</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="content">
+        <article>
+            <div class="full-width-image">
+                <img src="a1-gpt_screenshot_hosting.jpg" alt="Hosting Screenshot"
+                    onclick="openModal(this.src)" />
+            </div>
+            <h2>How to Deploy Your Simple Static Website on Netlify for Free</h2>
+            <p>If you've created your first static website and are ready to share it with the world, deploying it on a free, beginner-friendly hosting platform is the next step. In this guide, we'll cover how to deploy your static site on Netlify, a platform known for its ease of use and beginner-friendly setup.</p>
+
+            <h2>Step 1: Prepare Your Website Files</h2>
+            <p>Before you begin, ensure you have all your website files organized in a single folder. These files might include:</p>
+            <ul>
+                <li><code>index.html</code> (the main page)</li>
+                <li>Any additional HTML pages</li>
+                <li>CSS stylesheets (usually in a folder called <code>css</code> or <code>styles</code>)</li>
+                <li>JavaScript files</li>
+                <li>Images, icons, or other assets</li>
+            </ul>
+            <p><strong>Note:</strong> Ensure that the <code>index.html</code> file is in the root of your folder, as Netlify will look for this file to start displaying your site.</p>
+
+            <h2>Step 2: Sign Up on Netlify</h2>
+            <ol>
+                <li>Go to <a href="https://netlify.com" target="_blank">Netlify</a>.</li>
+                <li>Click on <strong>Sign Up</strong> in the upper-right corner.</li>
+                <li>Choose your preferred sign-up method (you can use GitHub, GitLab, Bitbucket, or email).</li>
+                <li>Follow the steps to complete your registration.</li>
+            </ol>
+
+            <h2>Step 3: Start a New Site</h2>
+            <p>After signing up:</p>
+            <ol>
+                <li>In your Netlify dashboard, click <strong>Add new site</strong>.</li>
+                <li>Select <strong>Import an existing project</strong>. Here, you’ll have two options:
+                    <ul>
+                        <li><strong>Drag and drop</strong> your website files directly into Netlify.</li>
+                        <li><strong>Connect to a Git provider</strong> if your site’s code is hosted on GitHub, GitLab, or Bitbucket.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Option A: Deploying by Dragging and Dropping</h3>
+            <p>This method is best for beginners who are not using version control.</p>
+            <ol>
+                <li>On the "Add new site" screen, choose <strong>Deploy with drag and drop</strong>.</li>
+                <li>Drag your entire website folder (or <code>index.html</code> file and related folders) into the upload box.</li>
+                <li>Netlify will start deploying your site immediately, and within moments, it will provide you with a link to access your new website.</li>
+            </ol>
+
+            <h3>Option B: Connecting to Git (for more experienced users)</h3>
+            <p>If you’re using GitHub, GitLab, or Bitbucket to store your code:</p>
+            <ol>
+                <li>Select the platform you’re using (e.g., GitHub).</li>
+                <li>Authorize Netlify to access your account and select the repository with your website code.</li>
+                <li>Choose the branch you want to deploy (usually <code>main</code> or <code>master</code>) and set the build command to <code>None</code> (as no extra build process is needed for static sites).</li>
+            </ol>
+            <p>Netlify will now pull your files directly from the repository and deploy the site.</p>
+
+            <h2>Step 4: Get Your Site URL</h2>
+            <p>Once deployed, you’ll see a unique URL assigned to your site, usually something like <code>https://unique-name.netlify.app</code>.</p>
+            <p>You can click on this link to view your live site. Netlify updates your site instantly whenever you make a change (if connected to a Git repository) or when you upload new files through drag-and-drop.</p>
+
+            <h2>Step 5: Customize Your Site URL (Optional)</h2>
+            <p>Netlify provides a way to personalize your site’s URL:</p>
+            <ol>
+                <li>In your Netlify dashboard, click on <strong>Site settings</strong>.</li>
+                <li>Under <strong>Domain management</strong>, click <strong>Options</strong> and select <strong>Edit site name</strong>.</li>
+                <li>Change the subdomain part of the URL (the part before <code>.netlify.app</code>) to something relevant to your site.</li>
+            </ol>
+            <p>Now you have a personalized URL for your site!</p>
+
+            <h2>Step 6: Enable HTTPS (Free and Automatic on Netlify)</h2>
+            <p>Netlify automatically provides HTTPS for your site, ensuring it’s secure. You don’t need to configure anything for this; Netlify will handle it for you.</p>
+
+            <h2>Congratulations!</h2>
+            <p>You’ve successfully deployed your static site on Netlify, all without any complex setup or cost. With Netlify’s ease of use, your site is now accessible to anyone, anywhere. Enjoy your journey as a web publisher!</p>
+        </article>
+    </div>
+
+    <footer>
+        <b>romanchuk.us</b> - all rights are reserved &copy; 2024
+    </footer>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // Prevent modal from closing when clicking on the image itself
+        document.querySelector('.modal-content').addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    </script>
+
+</body>
+
+</html>
