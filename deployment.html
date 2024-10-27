@@ -19,10 +19,11 @@
         nav {
             background-color: #4A4A4A;
             overflow: hidden;
+            text-align: center; /* Added this line to center the menu */
         }
         nav a {
-            float: left;
-            display: block;
+            /* float: left; */ /* Removed this line */
+            display: inline-block; /* Changed from block to inline-block */
             color: #FFFFFF;
             text-align: center;
             padding: 14px 16px;
@@ -63,6 +64,7 @@
 
 <header>
     <h1>Deployment Instructions</h1>
+    <p>This site is created exclusively with the use of ChatGPT.</p>
 </header>
 
 <nav>
@@ -194,7 +196,7 @@
 </div>
 
 <footer>
-    romanchuk.us all rights are reserved &copy; 2023
+    <b>romanchuk.us</b> - all rights are reserved &copy; 2024
 </footer>
 
 </body>

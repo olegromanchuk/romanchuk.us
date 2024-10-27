@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Airadise - Welcome to Airadise</title>
@@ -10,30 +11,37 @@
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #2D2D2D;
             color: #FFFFFF;
             padding: 20px;
             text-align: center;
         }
+
         nav {
             background-color: #4A4A4A;
             overflow: hidden;
+            text-align: center;
         }
+
         nav a {
-            float: left;
-            display: block;
+            display: inline-block;
             color: #FFFFFF;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            cursor: pointer;
         }
+
         nav a:hover {
             background-color: #575757;
         }
+
         .content {
             padding: 20px;
         }
+
         footer {
             background-color: #2D2D2D;
             color: #FFFFFF;
@@ -43,51 +51,217 @@
             bottom: 0;
             width: 100%;
         }
+
         article {
-            max-width: 800px;
+            max-width: 800px; /* Increased from 800px to 1200px */
             margin: auto;
+            margin-bottom: 100px;
+            /* Added this line */
+        }
+
+        /* Lightbox styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            margin: auto;
+            display: block;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .full-width-image {
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            max-width: none;
+        }
+
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #4A4A4A;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropbtn {
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Welcome to Airadise</h1>
-    <p>This site is created exclusively with the use of ChatGPT.</p>
-</header>
+    <header>
+        <h1>Welcome to Airadise</h1>
+        <p>This site is created exclusively with the use of ChatGPT.</p>
+    </header>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="#">Blog</a>
-    <a href="deployment.html">Deployment Instructions</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#" class="dropbtn" onclick="toggleDropdown(event)">Blog</a>
+            <div class="dropdown-content" id="blogDropdown">
+                <a href="article-1-host-my-site.html">Host My Site</a>
+            </div>
+        </div>
+        <a href="deployment.html">Deployment Instructions</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
 
-<div class="content">
+    <div class="content">
+        <article>
+            <h2>How Artificial Intelligence Can Ease Your Life</h2>
+            <p>
+                Artificial intelligence (AI) has revolutionized the way we approach everyday tasks. From personal
+                assistants to automated workflows, AI empowers us to accomplish more with less effort. One remarkable
+                example is using AI to create a simple website like this one.
+            </p>
+            <p>
+                To get the best outcome when crafting a message for ChatGPT, start by providing a clear and detailed
+                request. Specify the purpose of your project, the desired features, and any specific instructions. For
+                instance, mention the models you want to use, like GPT-4 for advanced capabilities.
+            </p>
+            <p>
+                Deployment and domain registration are also streamlined with AI assistance. You can ask for step-by-step
+                guidance on setting up hosting services like GitHub Pages and linking a custom domain. Here's an example
+                of a request you might use as a starting point:
+            </p>
+            <blockquote>
+                System message: you are professional web-developer who is passioned about AI tech and is always on the
+                edge of technologies. You can create state-of-art web sites with wow-effect. Your sites are responsive,
+                looks very light and work fast.
+            </blockquote>
+            <blockquote>
+                Request: I want to create a site that will represent a technical blog exclusively with use of ChatGPT.
+                There should be a message that this site is created with the use of ChatGPT. The motto should be:
+                Welcome to Airadise. The site should be reasonably complex with header menus. Make them bogus for now.
+                Footer as usual for sites - should say romanchuk.us all rights are reserved and add current year. The
+                first article should be on the topic on how artificial intelligence can ease your life: for example
+                create simple web-site like this. There should be complete description how to craft a message for
+                chatGPT to get best outcome, which models exists, which one you should use, how you should ask for a
+                deployment and domain registration.
+            </blockquote>
+            <div class="full-width-image">
+                <img src="gpt_screenshot.jpg" alt="ChatGPT Screenshot"
+                    style="width: 100%; max-width: none; display: block; margin: 20px 0; cursor: pointer;"
+                    onclick="openModal(this.src)" />
+            </div>
+            <p>
+                By leveraging AI models like ChatGPT, you can transform ideas into reality efficiently. Whether you're a
+                seasoned developer or just starting out, AI tools can significantly enhance your productivity and
+                creativity.
+            </p>
+        </article>
+    </div>
+
+
+    <!-- If you have more content, you can start a new article or continue with the rest of your page -->
     <article>
-        <h2>How Artificial Intelligence Can Ease Your Life</h2>
-        <p>
-            Artificial intelligence (AI) has revolutionized the way we approach everyday tasks. From personal assistants to automated workflows, AI empowers us to accomplish more with less effort. One remarkable example is using AI to create a simple website like this one.
-        </p>
-        <p>
-            To get the best outcome when crafting a message for ChatGPT, start by providing a clear and detailed request. Specify the purpose of your project, the desired features, and any specific instructions. For instance, mention the models you want to use, like GPT-4 for advanced capabilities.
-        </p>
-        <p>
-            Deployment and domain registration are also streamlined with AI assistance. You can ask for step-by-step guidance on setting up hosting services like GitHub Pages and linking a custom domain. Here's an example of a request you might use as a starting point:
-        </p>
-        <blockquote>
-            I want to create a site that will represent a technical blog exclusively with use of ChatGPT. There should be a message that this site is created with the use of ChatGPT. The motto should be: Welcome to Airadise. The site should be reasonably complex with header menus. Make them bogus for now. Footer as usual for sites - should say romanchuk.us all rights are reserved and add current year. The first article should be on the topic on how artificial intelligence can ease your life: for example create simple web-site like this. There should be complete description how to craft a message for chatGPT to get best outcome, which models exists, which one you should use, how you should ask for a deployment and domain registration.
-        </blockquote>
-        <p>
-            By leveraging AI models like ChatGPT, you can transform ideas into reality efficiently. Whether you're a seasoned developer or just starting out, AI tools can significantly enhance your productivity and creativity.
-        </p>
+        <!-- Additional content -->
     </article>
-</div>
 
-<footer>
-    romanchuk.us all rights are reserved &copy; 2024
-</footer>
+    <footer>
+        <b>romanchuk.us</b> - all rights are reserved &copy; 2024
+    </footer>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // Prevent modal from closing when clicking on the image itself
+        document.querySelector('.modal-content').addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        function toggleDropdown(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            const dropdownContent = document.getElementById('blogDropdown');
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdownContent = document.getElementById('blogDropdown');
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        }
+    </script>
 
 </body>
+
 </html>
