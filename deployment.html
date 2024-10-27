@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AIradise - Deployment Instructions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2D2D2D;
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #4A4A4A;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .content {
+            padding: 20px;
+        }
+        footer {
+            background-color: #2D2D2D;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        article {
+            max-width: 800px;
+            margin: auto;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            background-color: #eaeaea;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Deployment Instructions</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="#">Blog</a>
+    <a href="deployment.html">Deployment Instructions</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="content">
+    <article>
+        <h2>Deploying to GitHub Pages via CLI</h2>
+        <ol>
+            <li>
+                <strong>Install Git</strong>
+                <p>
+                    Ensure that Git is installed on your system. You can download it from
+                    <a href="https://git-scm.com/downloads">git-scm.com</a>.
+                </p>
+            </li>
+            <li>
+                <strong>Initialize a Local Repository</strong>
+                <p>Open your terminal and navigate to your project directory:</p>
+                <pre><code>cd /path/to/your/project</code></pre>
+                <p>Initialize a new Git repository:</p>
+                <pre><code>git init</code></pre>
+            </li>
+            <li>
+                <strong>Commit Your Code</strong>
+                <p>Add your files to the repository and commit them:</p>
+                <pre><code>git add .<br>git commit -m "Initial commit"</code></pre>
+            </li>
+            <li>
+                <strong>Create a GitHub Repository</strong>
+                <p>
+                    Log in to your GitHub account and create a new repository. Do not initialize it with a README or any other files.
+                </p>
+            </li>
+            <li>
+                <strong>Add Remote Origin</strong>
+                <p>In the terminal, add the remote repository:</p>
+                <pre><code>git remote add origin https://github.com/yourusername/yourrepository.git</code></pre>
+            </li>
+            <li>
+                <strong>Push to GitHub</strong>
+                <p>Push your code to the <code>main</code> branch:</p>
+                <pre><code>git push -u origin main</code></pre>
+            </li>
+            <li>
+                <strong>Enable GitHub Pages</strong>
+                <ol type="a">
+                    <li>Go to your repository on GitHub.</li>
+                    <li>Click on <strong>Settings</strong> &gt; <strong>Pages</strong>.</li>
+                    <li>Under <strong>Source</strong>, select <code>main</code> branch and root directory (<code>/</code>).</li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ol>
+            </li>
+        </ol>
+
+        <h2>Setting Up a Custom Domain on GitHub Pages</h2>
+        <ol>
+            <li>
+                <strong>Add a <code>CNAME</code> File</strong>
+                <p>
+                    In your project directory, create a file named <code>CNAME</code> (no extension) and add your custom domain inside:
+                </p>
+                <pre><code>yourdomain.com</code></pre>
+                <p>Commit and push this file:</p>
+                <pre><code>git add CNAME<br>git commit -m "Add custom domain"<br>git push</code></pre>
+            </li>
+            <li>
+                <strong>Configure DNS Records</strong>
+                <p>
+                    Log in to your domain registrar (e.g., GoDaddy, Namecheap) and set up the following DNS records:
+                </p>
+                <ul>
+                    <li><strong>A Records</strong>:
+                        <table>
+                            <tr>
+                                <th>Host</th>
+                                <th>Points to</th>
+                            </tr>
+                            <tr>
+                                <td>@</td>
+                                <td>185.199.108.153</td>
+                            </tr>
+                            <tr>
+                                <td>@</td>
+                                <td>185.199.109.153</td>
+                            </tr>
+                            <tr>
+                                <td>@</td>
+                                <td>185.199.110.153</td>
+                            </tr>
+                            <tr>
+                                <td>@</td>
+                                <td>185.199.111.153</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li><strong>CNAME Record</strong>:
+                        <table>
+                            <tr>
+                                <th>Host</th>
+                                <th>Points to</th>
+                            </tr>
+                            <tr>
+                                <td>www</td>
+                                <td>yourusername.github.io</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Enforce HTTPS</strong>
+                <ol type="a">
+                    <li>Go back to your GitHub repository settings under <strong>Pages</strong>.</li>
+                    <li>Make sure your custom domain is correctly listed.</li>
+                    <li>Check the option <strong>Enforce HTTPS</strong>.</li>
+                </ol>
+            </li>
+        </ol>
+        <p>
+            Now your website should be live at your custom domain using GitHub Pages!
+        </p>
+    </article>
+</div>
+
+<footer>
+    romanchuk.us all rights are reserved &copy; 2023
+</footer>
+
+</body>
+</html>
